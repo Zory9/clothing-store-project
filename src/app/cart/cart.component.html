@@ -1,0 +1,24 @@
+<div class="cart" *ngIf="show">
+    <h2 class="cart-title">Your cart</h2>
+    <div class="cart-content">
+        <div class="cart-box" *ngFor="let item of items">
+            <img src="../../assets/products/product{{item.id}}.jpg" alt="" class="cart-img">
+            <div class="box-details">
+                <div class="cart-product-title">{{ item.title }}</div>
+                <span class="cart-product-price">BGN {{ item.price | number: '1.0-2' : 'bg' }}  <span> {{ item.size }} </span></span>
+                <input type="number" [(ngModel)]="item.quantity" min="1" class="cart-quantity" (change)="onQuantityChange()">
+            </div>
+            <i class="ri-delete-bin-fill cart-bin" (click)="removeFromCart(item)"></i>
+        </div>
+    </div>
+
+    <div class="total">
+        <div class="title">Total:</div>
+        <div class="total-price">BGN {{ total | number: '1.0-2' : 'bg'}}</div>
+    </div>
+
+    <button type="button" class="cart-buy" (click)="showBuyForm()" [disabled]="items.length === 0">Buy now</button>
+    <i class="ri-close-line close-cart" (click)="closeCart()"></i>
+</div>
+
+<buy-form-component></buy-form-component>

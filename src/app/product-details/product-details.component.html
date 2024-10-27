@@ -1,0 +1,116 @@
+<div class="breadcrumb">
+    <div><a routerLink="/products">Products</a></div>
+    <div>{{ product.title }}</div>
+</div>
+
+<div class="single-product">
+    <table>
+        <tr>
+            <td class="big-img">
+                <swiper-container appSwiper #swiper [config]="swiperConfig" thumbs-swiper=".swiper-small">
+                    <swiper-slide>
+                        <img src="../../assets/products/product{{product.id}}.jpg" alt="">
+                    </swiper-slide>
+                    <swiper-slide>
+                        <img src="../../assets/products/product{{product.id}}_1.jpg" alt="">
+                    </swiper-slide>
+                    <swiper-slide>
+                        <img src="../../assets/products/product{{product.id}}_2.jpg" alt="">
+                    </swiper-slide>
+
+                </swiper-container>
+            </td>
+
+            <td class="item-desc">
+                <img src="../../assets/products/product{{product.id}}.jpg" alt="" class="product-img">
+                <h1>{{ product.type }}</h1>
+                <h2 class="product-title">{{ product.title }}</h2>
+                <div class="star">
+                    <i *ngFor="let item of [].constructor(5)" class="ri-star-fill"></i>
+                    <span class="ratings">({{ product.rating }})</span>
+                </div>
+                <h2 class="product-price">BGN {{ product.price | number: '1.0-2' : 'bg'}}</h2>
+                <select class="size" [(ngModel)]="selectedSize">
+                    <option default>Select size</option>
+                    <option>XS</option>
+                    <option>S</option>
+                    <option>M</option>
+                    <option>L</option>
+                    <option>XL</option>
+                </select>
+                <input type="number" min="1" [(ngModel)]="selectedQuantity">
+                <button class="add-cart" (click)="addToCart()">Add To Cart</button>
+                <h3>Product details:</h3>
+                <span>
+                    {{ product.description }}
+                    <ul>
+                        <li *ngFor="let detail of product.details">{{ detail }}</li>
+                    </ul>
+                </span>
+
+            </td>
+        </tr>
+
+        <tr>
+            <td class="small-img">
+                <swiper-container appSwiper #swiperThumbs [config]="swiperThumbsConfig" class="swiper-small">
+                    <swiper-slide>
+                        <img src="../../assets/products/product{{product.id}}.jpg" alt="">
+                    </swiper-slide>
+                    <swiper-slide>
+                        <img src="../../assets/products/product{{product.id}}_1.jpg" alt="">
+                    </swiper-slide>
+                    <swiper-slide>
+                        <img src="../../assets/products/product{{product.id}}_2.jpg" alt="">
+                    </swiper-slide>
+                </swiper-container>
+            </td>
+
+            <td class="review">
+                <h3>Please give your review for this product:</h3>
+                <form [formGroup]="reviewForm" id="reviewForm">
+                    <div class="rating">
+                        <i *ngFor="let item of [1,2,3,4,5]" (click)="countStar(item)"
+                            [ngClass]="item <= selectedStar ? 'ri-star-fill' : 'ri-star-line'" class="star"></i>
+                    </div>
+                    <textarea formControlName="opinion" id="opinion" name="opinion"
+                        placeholder="Write your opinion here..."></textarea>
+                    <div class="buttons">
+                        <button type="submit" class="submit-btn" (click)="submitReview()">Submit</button>
+                        <button type="reset" class="reset-btn" (click)="cancelReview()">Cancel</button>
+                    </div>
+                </form>
+            </td>
+        </tr>
+
+        <tr>
+            <td class="starReview">
+                <h2>Customers' reviews:</h2>
+                <div class="stars">
+                    <i *ngFor="let item of [].constructor(5)" class="ri-2x ri-star-fill star"></i>
+                    <span>5.0</span>
+                    <h4>({{ product.rating }})</h4>
+                </div>
+
+                <div class="rating-progress">
+                    <div class="rating-progress-value" *ngFor="let rating of [1,2,3,4,5]">
+                        <p> {{ rating }} <i class="ri-star-fill star"></i></p>
+                        <div class="progress">
+                            <div class="bar"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </td>
+
+            <td class="reviewsAll">
+                <ul id="reviewsList">
+                    <li *ngFor="let review of reviews">
+                        <p>{{ review.name }}</p>
+                        {{ review.review }}
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+</div>

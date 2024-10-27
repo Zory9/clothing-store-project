@@ -1,1 +1,741 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+* {
+    font-family: 'Montserrat';
+}
+
+body {
+    margin: 0;
+    background-color: #b8a076;
+}
+
+header {
+    background-color: #1e1e23;
+}
+
+header a img {
+    width: 150px;
+    height: 150px;
+}
+
+header div {
+    text-align: center;
+}
+
+nav {
+    padding: 20px 80px;
+    background-color: #1e1e23;
+    border-top: 1px solid #b8a076;
+    border-bottom: 1px solid #b8a076;
+}
+
+#navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#navbar li {
+    list-style: none;
+    padding: 0 20px;
+    position: relative;
+}
+
+#navbar li a,
+#navbar li .cart-icon{
+    display: inline-block;
+    font-size: 20px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #b8a076;
+    cursor: pointer;
+}
+
+#navbar li .cart-icon:hover,
+#navbar li a:hover,
+#navbar li a.active {
+    color: white
+}
+
+#navbar li a.active::after,
+#navbar li a:hover::after {
+    content: "";
+    width: 30%;
+    height: 1px;
+    background: white;
+    position: absolute;
+    bottom: -1px;
+    left: 20px;
+}
+
+.cart{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 620px;
+    padding: 20px;
+    background: #b8a076;
+    box-shadow: 10px 10px 30px;
+    z-index: 200;
+    transition: 0.3s;
+    overflow: auto;
+}
+
+.cart .cart-title{
+    text-align: center;
+    text-transform: uppercase;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #1e1e23;
+    margin-bottom: 0;
+}
+
+.cart .cart-img{
+    width: 100px;
+}
+
+.cart .cart-box{
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    border-bottom: 1px solid #1e1e23;
+    padding: 10px 0 10px 0;
+}
+
+.cart .cart-box .box-details{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+}
+
+.cart .cart-box .cart-product-title{
+    text-align: left;
+    font-weight: bold;
+}
+
+.cart .cart-box .cart-product-price{
+    padding-bottom: 20px;
+}
+
+.cart .cart-box .cart-quantity{
+    width: 30px;
+}
+
+.cart .cart-box .cart-bin{
+    margin: 55px 0 55px 0;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.cart .cart-box .cart-bin:hover{
+    opacity: 0.6;
+}
+
+.cart .total{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+    gap: 5px;
+}
+
+.cart .total .title{
+    font-weight: bold;
+}
+
+.cart .cart-buy{
+    background-color: #1e1e23;
+    color: white;
+    height: 35px;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: center;
+    text-transform: uppercase;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.cart .cart-buy[disabled]{
+  border: 1px solid #505050;;
+  background-color: #9b9797;
+  color: #505050;
+}
+
+.cart .cart-buy:hover{
+    opacity: 0.9;
+}
+
+.cart .close-cart{
+    position: absolute;
+    top: 14px; 
+    right: 12px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+#hero {
+    background-image: url("./assets/hero.jpg");
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 0 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+#hero h1 {
+    color: #b8a076;
+    font-size: 30pt;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+#hero h2 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 20pt;
+}
+
+#hero h3 {
+    margin-bottom: 10px;
+    font-size: 15pt;
+    text-transform: uppercase;
+}
+
+#hero p {
+    color: #b8a076;
+    margin-top: 10px;
+    font-style: italic;
+}
+
+#hero button {
+    background-image: url(./assets/button.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: transparent;
+    color: black;
+    border: 0;
+    padding: 10px 40px 10px 65px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 30px;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #1e1e23;
+}
+
+#hero button:active {
+    background-color: black;
+    box-shadow: 0 3px #1e1e23;
+    transform: translateY(4px);
+}
+
+#products {
+    text-align: center;
+}
+
+#products h1 {
+    text-transform: uppercase;
+    font-size: 30pt;
+    position: relative;
+}
+
+#products h1::after {
+    content: "";
+    width: 6%;
+    height: 2px;
+    background: black;
+    position: absolute;
+    bottom: -1px;
+    left: 630px;
+    top: 60px;
+}
+
+#products .pro-container {
+    line-height: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#products .product {
+    background-color: white;
+    width: 20%;
+    min-width: 250px;
+    padding: 10px 12px;
+    border: 1px solid #1e1e23;
+    border-radius: 20px;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.05);
+    margin: 15px 20px;
+    transition: 0.2s ease;
+    position: relative;
+}
+
+#products .product:hover {
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+#products .product img {
+    margin-bottom: 1px;
+    width: 100%;
+    border-radius: 20px;
+}
+
+#products .product .description {
+    text-align: start;
+}
+
+#products .product .description h5 {
+    font-size: 14pt;
+}
+
+#products .product .description .ri-star-fill {
+    color: rgb(230, 230, 21);
+}
+
+#products .product .ri-shopping-bag-fill {
+    position: absolute;
+    bottom: 30px;
+    right: 20px;
+    cursor: pointer;
+}
+
+#products .product .ri-shopping-bag-fill:hover{
+    opacity: 0.6;
+}
+
+#products .product .description h6 {
+    font-size: 10pt;
+    font-style: italic;
+    font-weight: lighter;
+}
+
+#products .product a {
+    text-decoration: none;
+    color: black;
+}
+
+#products .product a:hover {
+    color: #b8a076;
+}
+
+#products .product .description .star .ratings {
+    position: absolute;
+    padding-left: 5px;
+    color: darkgray;
+    font-size: 10pt;
+}
+
+.breadcrumb {
+    display: flex;
+    flex-flow: row wrap;
+    margin: 20px 10px 20px;
+}
+
+.breadcrumb div a {
+    text-decoration: none;
+    color: black;
+}
+
+.breadcrumb div:not(:last-child)::after {
+    content: "/";
+    padding: 0 0.35em;
+}
+
+.breadcrumb div:last-child {
+    opacity: 0.6;
+}
+
+.single-product{
+    margin: 0 50px 0 50px;
+}
+
+.single-product table {
+    table-layout: fixed;
+    width: 100%;
+    padding: 0 50px 0 50px;
+    background-color: white;
+    border-radius: 30px;
+}
+
+.single-product table .big-img {
+    width: 40%;
+    padding-right: 40px;
+}
+
+.single-product table .big-img swiper-slide {
+   justify-content: center;
+   align-items: center;
+   padding-top: 30px;
+}
+
+.single-product table .big-img swiper-slide img {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.single-product table .small-img{
+    vertical-align: top;
+}
+
+.single-product table .small-img .swiper-small{
+    display: flex;
+}
+
+.single-product table .small-img swiper-slide{
+    overflow: hidden;
+    flex-basis: 30%;
+    margin: 0 1em 1em 0;
+    cursor: pointer;
+}
+
+.single-product table .small-img swiper-slide img{
+    width: 130px;
+    height: 170px;
+}
+
+:root {
+    --swiper-navigation-color: #1e1e23;
+}
+
+.single-product table .item-desc {
+    width: 60%;
+    vertical-align: top;
+}
+
+.single-product table .item-desc .product-img{
+    display: none;
+}
+
+.single-product table .item-desc .ri-star-fill {
+    color: rgb(230, 230, 21);
+}
+
+.single-product table .item-desc .ratings {
+    position: absolute;
+    padding-left: 5px;
+    opacity: 0.7;
+    font-size: 10pt;
+}
+
+.single-product table .item-desc .size {
+    display: block;
+    padding: 5px 10px;
+}
+
+.single-product table .item-desc input {
+    width: 40px;
+    height: 30px;
+    padding-left: 10px;
+    font-size: 16px;
+    margin: 10px 10px 0 0; 
+}
+
+.single-product table .item-desc .add-cart {
+    background-color: #1e1e23;
+    color: white;
+    height: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.single-product table .item-desc .buy:hover{
+    opacity: 0.9;
+}
+
+.single-product table .review{
+    padding-top: 0;
+    vertical-align: top;
+}
+.single-product table .review h3{
+    margin: 0 0 10px 0;
+}
+
+.single-product table .review #opinion{
+    margin: 10px 0 10px 0;
+    width: 100%;
+    height: 150px;
+    resize: none;
+}
+
+.single-product table .review .rating .star{
+    color: rgb(230, 230, 21);
+}
+
+.single-product table .review .buttons{
+    display: flex;
+    justify-content: right;
+    align-items: right;
+    margin-bottom: 10px;
+}
+
+.single-product table .review .buttons .submit-btn{
+    margin-right: 10px;
+}
+
+.single-product table .review .buttons .submit-btn,
+.single-product table .review .buttons .reset-btn{
+    background-color: #1e1e23;
+    color: white;
+    height: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.single-product table .starReview{
+    vertical-align: text-top;
+}
+
+.single-product table .starReview .stars{
+    margin: 150px 50px 0 0;
+    justify-content: center;
+    text-align: center;
+}
+
+.single-product table .starReview .stars span{
+   position: absolute;
+   margin: 5px 0 0 20px;
+   font-size: 18pt;
+   font-weight: bold;
+}
+
+.single-product table .starReview .stars .star{
+    color: rgb(230, 230, 21);
+}
+
+.single-product table .starReview .rating-progress-value{
+    display: flex;
+    margin-left: 5px;
+    justify-content: space-evenly;
+    column-gap: 16px;
+}
+
+.single-product table .starReview .rating-progress-value .star{
+    color:  rgb(230, 230, 21);
+}
+
+.single-product table .starReview .rating-progress-value .progress{
+    margin-top: 20px;
+    flex: 1 1 0;
+    height: 10px;
+    border-radius: 8px;
+}
+
+.single-product table .starReview .rating-progress-value .progress .bar{
+    height: 100%;
+    background-color:#b8a076; 
+    border-radius: 8px;
+}
+
+.single-product table .starReview .rating-progress-value:not(:first-child) .progress .bar{
+    background-color: #b8a076;
+    opacity: 0.6;
+}
+
+.single-product table .reviewsAll{
+    justify-content: center;
+    text-align: center;
+}
+
+.single-product table .reviewsAll #reviewsList {
+    list-style: none;
+    justify-content: space-between;
+    text-align: left;
+    margin-top: 50px;
+}
+
+.single-product table .reviewsAll #reviewsList li{
+    border-top: 1px solid #1e1e23;
+    border-radius: 10px;
+    padding: 10px 10px 10px 10px;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.05);
+    transition: 0.2s ease;
+    margin-bottom: 20px;
+}
+
+.single-product table .reviewsAll #reviewsList li:hover{
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+    color: white;
+    background-color: #1e1e23;
+}
+
+.buy-now-form{
+    background-color: #b8a076;
+    width: 600px;
+    height: 320px;
+    z-index: 1000;
+    position: fixed;          
+    top: 50%;          
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    margin: auto;
+    border: 1px solid #1e1e23;
+    box-shadow: 10px 10px 30px;
+    padding: 15px 30px 30px 30px; 
+    text-align: left;
+}
+
+.buy-now-form .send-form{
+    position: absolute;
+    bottom: 20px; 
+    right: 20px;
+    background-color: #1e1e23;
+    color: white;
+    height: 35px;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: center;
+    text-transform: uppercase;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    justify-content: center;
+}
+
+.buy-now-form .send-form:hover{
+    opacity: 0.9;
+}
+
+.buy-now-form .close-buy-form{
+    position: absolute;
+    top: 14px; 
+    right: 12px;
+    cursor: pointer;
+    font-size: 30px;
+}
+
+.buy-now-form .fill-in-text{
+    padding-bottom: 10px;
+    border-bottom: 1px solid #1e1e23;
+    text-align: center;
+}
+
+.buy-now-form #first-name,
+.buy-now-form #last-name,
+.buy-now-form #address{
+    width: 400px;
+    height: 20px;
+}
+
+.buy-now-form .first-name-text,
+.buy-now-form .last-name-text,
+.buy-now-form .address-text{
+    margin-bottom: 10px;
+}
+
+#contact .content{
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#contact .content h2{
+    font-size: 40px;
+}
+
+#contact .content p{
+    font-size: 20px;
+}
+
+#contact table{
+    table-layout: fixed;
+    width: 100%;
+}
+
+#contact table .contact-info .contact-box{
+    padding: 20px 0 0 80px;
+    display: flex;
+}
+
+#contact table .contact-info .contact-box .icon{
+    min-width: 60px;
+    height: 60px;
+    background-color: #fff;
+    margin: 20px 20px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 22px;
+}
+
+
+#contact table .contact-info .contact-box .text h3{
+    margin: 25px 0 0 0;
+}
+
+#contact table .contact-info .contact-box .text p{
+    margin-top: 5px;
+}
+
+#contact .contact-form form{
+    background-color: #fff;
+    width: 500px;
+    padding: 20px 40px 20px 40px;
+    box-shadow: 10px 10px 50px;
+}
+
+#contact .contact-form .send-message-text{
+    margin-bottom: 10px;
+    font-size: 25px;
+}
+
+#contact .contact-form #message{
+    resize: none;
+    position: relative;
+    width: 500px;
+    height: 100px;
+}
+
+#contact .contact-form .input-box{
+    margin: 30px 0 30px 0;
+}
+
+#contact .contact-form .input-box h3{
+    margin: 0 0 10px 0;
+    font-size: 18px;
+}
+
+#contact .contact-form .input-box input{
+    width: 500px;
+    height: 20px;
+}
+
+#contact .contact-form .send-message{
+    background-color: #1e1e23;
+    color: white;
+    height: 40px;
+    width: 80px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 425px;
+}
+
+#contact .contact-form .send-message:hover{
+    opacity: 0.9;
+}
+
+.swal2-confirm.swal2-styled{
+    background-color: #b8a076;
+}

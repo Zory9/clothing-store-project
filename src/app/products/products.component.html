@@ -1,0 +1,23 @@
+<section id="products">
+    <h1>Our products</h1>
+    <h3>Check out our new variety of products</h3>
+    <div class="pro-container">
+        <div class="product" *ngFor="let product of products">
+            <a [routerLink]="['/products/product', product.id]">
+                <img src="../../assets/products/product{{product.id}}.jpg" alt="" class="product-img">
+            </a>
+            <div class="description">
+                <a [routerLink]="['/products/product', product.id]">
+                    <h5>{{ product.type }}</h5>
+                    <h6 class="product-title">{{ product.title }}</h6>
+                </a>
+                <div class="star">
+                    <i *ngFor="let item of [].constructor(5)" class="ri-star-fill"></i>
+                    <span class="ratings">({{ product.rating }})</span>
+                </div>
+                <h4 class="product-price">BGN {{ product.price | number: '1.0-2' : 'bg'}}</h4>
+            </div>
+            <i class="ri-shopping-bag-fill ri-lg add-cart" (click)="addToCart(product)"></i>
+        </div>
+    </div>
+</section>

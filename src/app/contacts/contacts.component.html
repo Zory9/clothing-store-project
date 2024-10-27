@@ -1,0 +1,54 @@
+<section id="contact">
+    <div class="content">
+        <h2>Contact us</h2>
+        <p>If you have any questions, feel free to contact us at any time!</p>
+    </div>
+
+    <table>
+        <tr>
+            <td class="contact-info">
+                <div class="contact-box">
+                    <i class="ri-map-pin-fill icon"></i>
+                    <div class="text">
+                        <h3>Address</h3>
+                        <p>Studentski grad, 1700, Sofia</p>
+                    </div>
+                </div>
+                <div class="contact-box">
+                    <i class="ri-phone-fill icon"></i>
+                    <div class="text">
+                        <h3>Phone</h3>
+                        <p>+359 883 409 938</p>
+                    </div>
+                </div>
+                <div class="contact-box">
+                    <i class="ri-mail-fill icon"></i>
+                    <div class="text">
+                        <h3>Email</h3>
+                        <p>clothing_store&#64;gmail.com</p>
+                    </div>
+                </div>
+
+            </td>
+            <td class="contact-form">
+                <form [formGroup]="contactForm">
+                    <h2 class="send-message-text">Send us a message:</h2>
+                    <div class="input-box">
+                        <h3 class="full-name-text">Full name:</h3>
+                        <input type="text" id="full-name" formControlName="fullName">
+                    </div>
+                    <div class="input-box">
+                        <h3 class="email-text">Email:</h3>
+                        <input type="text" id="email" formControlName="email">
+                    </div>
+                    <div class="input-box">
+                        <textarea id="message" name="message" formControlName="message" placeholder="Write your message here..."></textarea>
+                    </div>
+                    <button type="submit" class="send-message" (click)="submitForm()">Send</button>
+                </form>
+
+            </td>
+        </tr>
+    </table>
+
+</section>
